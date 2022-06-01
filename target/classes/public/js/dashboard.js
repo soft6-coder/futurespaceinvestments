@@ -30,6 +30,7 @@ let accountType;
 let userDetail;
 let cryptos;
 let cryptoUpdate = [];
+let hasInvestment;
 
 getCryptoUpdate();
 
@@ -74,32 +75,36 @@ setTimeout(function () {
 paymentInfoSelection(document.getElementById("usd-info"));
 
 document.body.addEventListener("input", function (e) {
-	if (withdrawEtx.value <= userDetail.account.accountBalance && withdrawEtx.value.length != 0) {
-		withdrawBtn.classList.replace("blue-background-inactive", "blue-background");
-		canWithdraw = true;	
-	}
-	
-	else {
-		withdrawBtn.classList.replace("blue-background", "blue-background-inactive");
-		canWithdraw = false;	
-	}
+  if (
+    withdrawEtx.value <= userDetail.account.accountBalance &&
+    withdrawEtx.value.length != 0 && userDetail.account.accountBalance > 500 && hasInvestment == false
+  ) {
+    withdrawBtn.classList.replace(
+      "blue-background-inactive",
+      "blue-background"
+    );
+    canWithdraw = true;
+  } else {
+    withdrawBtn.classList.replace(
+      "blue-background",
+      "blue-background-inactive"
+    );
+    canWithdraw = false;
+  }
 });
-
 
 document.body.addEventListener("click", function (e) {
   let targetId = e.target.id;
 
   if (targetId == "start-conversation") {
- 
   } else if (targetId == "customer-support") {
-  
   } else if (targetId == "back-to-start-conversation-card") {
   } else if (targetId == "send-message") {
   } else if (
     targetId == "open-fund-modal" ||
     targetId == "open-fund-modal-mobile"
   ) {
-    document.getElementById("fund-modal").style.display = "block";
+    document.getElementById("investment-plan-modal").style.display = "block";
   } else if (targetId == "close-fund-modal") {
     document.getElementById("fund-modal").style.display = "none";
   } else if (
@@ -124,16 +129,15 @@ document.body.addEventListener("click", function (e) {
   } else if (targetId == "close-borrow-modal") {
     document.getElementById("borrow-modal").style.display = "none";
   } else if (targetId == "contact-support-trade") {
-   
   } else if (
     targetId == "refer-a-friend" ||
     targetId == "refer-a-friend-mobile"
   ) {
-//    document.getElementById("refer-modal").style.display = "block";
+    //    document.getElementById("refer-modal").style.display = "block";
   } else if (targetId == "close-refer-modal") {
     document.getElementById("refer-modal").style.display = "none";
   } else if (targetId == "contact-support-borrow") {
-		tidioChatApi.open();
+    tidioChatApi.open();
   } else if (targetId == "firstname") {
     if (isAppSetingsOpened) {
       document.getElementById("app-settings").style.display = "none";
@@ -147,17 +151,15 @@ document.body.addEventListener("click", function (e) {
         document.getElementById("settings").style.display = "block";
       }
     }
-  }
-else if(targetId == "firstname-mobile") {
-		document.getElementById("settings").style.display = "none";
+  } else if (targetId == "firstname-mobile") {
+    document.getElementById("settings").style.display = "none";
     isSettingsOpened = false;
     setTimeout(function () {
       document.getElementById("app-settings").style.display = "block";
       isAppSetingsOpened = true;
     }, 200);
     setUserDetailsSetting(addressDetails);
-} 
-else if (targetId == "profile-setting") {
+  } else if (targetId == "profile-setting") {
     document.getElementById("settings").style.display = "none";
     isSettingsOpened = false;
     setTimeout(function () {
@@ -180,6 +182,10 @@ else if (targetId == "profile-setting") {
     settingDetailSelector("security-options");
   } else if (targetId == "wallet") {
     settingSelector(e.target);
+    settingDetailSelector("wallet-options");
+  } else if (targetId == "withdrawals") {
+    settingSelector(e.target);
+    settingDetailSelector("withdrawal-options");
   } else if (targetId == "interest") {
     settingSelector(e.target);
     settingDetailSelector("interest-options");
@@ -214,20 +220,18 @@ else if (targetId == "profile-setting") {
     document.getElementById("crypto-deposit-option").style.display = "none";
     document.getElementById("select-crypto").textContent = "Ethereum (ETH)";
     paymentInfoSelection(document.getElementById("eth-info"));
-
-  } 
-  else if (e.target.id == "usdt") {
-    document.getElementById("fund-heading").textContent = "USDT Deposit (TRC 20)";
+  } else if (e.target.id == "usdt") {
+    document.getElementById("fund-heading").textContent =
+      "USDT Deposit (TRC 20)";
     document.getElementById("crypto-deposit-option").style.display = "none";
     document.getElementById("select-crypto").textContent = "USD Token (USDT)";
     paymentInfoSelection(document.getElementById("usdt-info"));
-  }
-  else if (e.target.id == "apply-for-loan") {
-	tidioChatApi.open();
+  } else if (e.target.id == "apply-for-loan") {
+    tidioChatApi.open();
   } else if (e.target.id == "loan-history") {
-	tidioChatApi.open();
+    tidioChatApi.open();
   } else if (e.target.id == "learn-more") {
-	tidioChatApi.open();
+    tidioChatApi.open();
   } else if (e.target.id == "bnb") {
     document.getElementById("fund-heading").textContent = "BNB Deposit";
     document.getElementById("crypto-deposit-option").style.display = "none";
@@ -245,58 +249,84 @@ else if (targetId == "profile-setting") {
     navigator.clipboard.writeText(
       e.target.parentElement.previousElementSibling.children[0].value
     );
+  } else if (e.target.id == "contact-support-otp") {
+    tidioChatApi.open();
+  } else if (e.target.id == "withdraw-btn") {
+    if (canWithdraw) {
+      withdraw();
+    }
+  } else if (
+    e.target.id == "open-trade-room-modal" ||
+    e.target.id == "open-trade-room-modal-2" ||
+    e.target.id == "open-trade-room-modal-3"
+  ) {
+//    document.getElementById("trade-room-modal").style.display = "block";
+	location.href = "./trading-room.html"
+  } else if (e.target.id == "close-trade-room-modal") {
+    document.getElementById("trade-room-modal").style.display = "none";
+  } else if (e.target.id == "open-trade-history-modal" || e.target.id == "open-trade-history-modal-2") {
+    document.getElementById("trade-history-room-modal").style.display = "block";
+  } else if (e.target.id == "close-trade-history-modal") {
+    document.getElementById("trade-history-room-modal").style.display = "none";
+  } else if (e.target.classList.contains("invest-now")) {
+    document.getElementById("investment-plan-modal").style.display = "none";
+    document.getElementById("fund-modal").style.display = "block";
+  } else if (e.target.id == "close-investment-plan-modal") {
+    document.getElementById("investment-plan-modal").style.display = "none";
+  } else if (e.target.id == "add-wallet") {
+    document.getElementById("add-wallet-modal").style.display = "block";
+  } else if (e.target.id == "close-add-wallet-modal") {
+    document.getElementById("add-wallet-modal").style.display = "none";
+  } else if (e.target.id == "save-wallet") {
+    saveWallet();
   }
-	else if(e.target.id == "contact-support-otp") {
-		tidioChatApi.open();
-	}
-	else if(e.target.id == "withdraw-btn") {
-		if (canWithdraw) {
-			withdraw();	
-		}
-	}
+  else if (e.target.id == "select-crypto-wallet") {
+	console.log("Selected")
+    document.getElementById("add-wallet-modal").style.display = "block";
+  }
 });
 
+function saveWallet() {
+	let walletName = document.getElementById("choose-crypto").value;
+	let walletAddress = document.getElementById("wallet-address").value;
+	
+	document.getElementById("select-crypto-wallet").innerText = `${walletName} - ${walletAddress}`
+	document.getElementById("add-wallet-modal").style.display = "none";
+	
+}
 
 function withdraw() {
-	document.getElementById("withdraw-container").style.visibility = "hidden";
-	document.getElementById("withdraw-spinner").style.display = "block";
-	
-	setInterval(function() {
-		showWithdrawalOTP();
-	}, 2000)
-	
-//	let withdrawalPayload;
-//	
-//	let withdrawalXhr = new XMLHttpRequest();
-//	withdrawalXhr.open("GET", "/withdraw", true);
-//	withdrawalXhr.setRequestHeader("Content-Type", "application/json");
-//	withdrawalXhr.send(JSON.stringify(withdrawalPayload));
-//	
-//	withdrawalXhr.onreadystatechange = function() {
-//		if (this.readyState == 4 && this.status == 200) {
-//			let response = JSON.parse(this.response);
-//			if (response.withdrawalId != null) {
-//				
-//			}
-//		}
-//	}
-	
+  document.getElementById("withdraw-container").style.visibility = "hidden";
+  document.getElementById("withdraw-spinner").style.display = "block";
+
+  setInterval(function () {
+    showWithdrawalOTP();
+  }, 2000);
+
+  //	let withdrawalPayload;
+  //
+  //	let withdrawalXhr = new XMLHttpRequest();
+  //	withdrawalXhr.open("GET", "/withdraw", true);
+  //	withdrawalXhr.setRequestHeader("Content-Type", "application/json");
+  //	withdrawalXhr.send(JSON.stringify(withdrawalPayload));
+  //
+  //	withdrawalXhr.onreadystatechange = function() {
+  //		if (this.readyState == 4 && this.status == 200) {
+  //			let response = JSON.parse(this.response);
+  //			if (response.withdrawalId != null) {
+  //
+  //			}
+  //		}
+  //	}
 }
 
 function showWithdrawalOTP() {
-	document.getElementById("withdraw-spinner").style.display = "none";
-	document.getElementById("withdraw-container").style.display = "none";
-	
-	
-	document.getElementById("otp-container").style.display = "block";
+  document.getElementById("withdraw-spinner").style.display = "none";
+  document.getElementById("withdraw-container").style.display = "none";
+
+  document.getElementById("otp-container").style.display = "block";
 }
 
-function disconnect() {
-  if (stompClient !== null) {
-    stompClient.disconnect();
-  }
-  console.log("Disconnected");
-}
 
 function paymentInfoSelection(info) {
   paymentInfos.forEach(function (item) {
@@ -411,6 +441,8 @@ function getAccount() {
         );
         document.getElementById("paid-interest").textContent = (0).toFixed(1);
       } else {
+	console.log(response.active)
+	hasInvestment = response.active;
         document.getElementById("interest-account").innerText =
           response.investedAmount.toFixed(1);
         let startTime = moment(response.startDate);
@@ -420,9 +452,10 @@ function getAccount() {
         let totalTime;
         let expectedAmount;
 
-		totalTime = endTime.diff(startTime, "hours");
-          expectedAmount =
-            response.investedAmount * response.percentage - response.investedAmount;
+        totalTime = endTime.diff(startTime, "hours");
+        expectedAmount =
+          response.investedAmount * response.percentage -
+          response.investedAmount;
 
         if (endTime.diff(currentTime, "minutes") <= 0) {
           document.getElementById("payment-percent").style.width = `${100}%`;
@@ -434,16 +467,16 @@ function getAccount() {
 
           investmentComplete();
         } else {
-          					let currentPercent = (100 * elapsedTime) / totalTime;
-							          
-          					let accruedInterest = (expectedAmount * elapsedTime) / totalTime;
-          					document.getElementById(
-          						"payment-percent"
-          					).style.width = `${currentPercent}%`;
-          
-          					document.getElementById("accrued-interest").textContent =
-          						accruedInterest.toFixed(1);
-          					document.getElementById("paid-interest").textContent = (0).toFixed(1);
+          let currentPercent = (100 * elapsedTime) / totalTime;
+
+          let accruedInterest = (expectedAmount * elapsedTime) / totalTime;
+          document.getElementById(
+            "payment-percent"
+          ).style.width = `${currentPercent}%`;
+
+          document.getElementById("accrued-interest").textContent =
+            accruedInterest.toFixed(1);
+          document.getElementById("paid-interest").textContent = (0).toFixed(1);
         }
       }
     }
@@ -485,12 +518,12 @@ function getUserAddress() {
     if (this.readyState == 4 && this.status == 200) {
       let response = JSON.parse(this.response);
       addressDetails = response;
-		document.tidioIdentify = {
-				distinct_id: response.user.email, // Unique visitor ID in your system
-				email: response.user.email, // visitor email
-				name: response.user.fullName, // Visitor name
-				phone: response.mobileNumber //Visitor phone
-			};
+      document.tidioIdentify = {
+        distinct_id: response.user.email, // Unique visitor ID in your system
+        email: response.user.email, // visitor email
+        name: response.user.fullName, // Visitor name
+        phone: response.mobileNumber, //Visitor phone
+      };
       let getAccountTypeXhr = new XMLHttpRequest();
       getAccountTypeXhr.open("GET", `/accounttype`, true);
       getAccountTypeXhr.send();
@@ -500,8 +533,6 @@ function getUserAddress() {
           let response = JSON.parse(this.response);
           accountType = response;
           setUserDetailsSetting(addressDetails);
-
-			
         }
       };
     }
@@ -587,7 +618,6 @@ function updatePassword() {
       userPasswordXhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           let response = JSON.parse(this.response);
-			console.error(response)
         }
       };
     }
@@ -603,6 +633,16 @@ function getCryptos() {
     if (this.readyState == 4 && this.status == 200) {
       let response = JSON.parse(this.response);
       console.log(response);
+      response.forEach(function(item, index) {
+		if (index == 0) {
+			
+		}
+		else {
+			document.getElementById("choose-crypto").innerHTML += bindChooseCrypto(item);
+		}
+		
+	   })
+       
       cryptos = response;
     }
   };
@@ -681,4 +721,101 @@ function displayCryptoUpdate(crypto, color, plus, direction) {
 						</div>
 						<hr style="margin: 0px 50px 8px 10px; border-width: 2px">
 						</div>`;
+}
+
+function bindWithdrawal(withdrawal, index) {
+  return `
+    <div class="w3-row w3-padding-large w3-round" style="margin-top: 24px; background-color: rgb(248, 248, 248);">
+                  <div class="w3-col s1">
+                    ${index}.
+                  </div>
+                  <div class="w3-col s2">
+                    <p class="no-margin">BITCOIN</p>
+                  </div>
+                  <div class="w3-col s6">
+                    bc1qn8j4sj0zr0m8jg3ccc6ufw8as7hmfysfcncmx2
+                  </div>
+                  <div class="w3-col s1">
+                    $500
+                  </div>
+                  <div class="w3-col s2">
+                    20th March 2022
+                  </div>
+                </div>
+    `;
+}
+
+function bindWallet(wallet, index) {
+    return `
+    <div class="w3-row w3-padding-large w3-round" style="margin-top: 24px; background-color: rgb(248, 248, 248);">
+                  <div class="w3-col s1">
+                    ${index}.
+                  </div>
+                  <div class="w3-col s2">
+                    <p class="no-margin">BITCOIN</p>
+                  </div>
+                  <div class="w3-col s8">
+                    <p class="no-margin">
+                      bc1qn8j4sj0zr0m8jg3ccc6ufw8as7hmfysfcncmx2
+                    </p>
+                    
+                  </div>
+                  <div class="w3-col s1">
+                    <span class="fa fa-times w3-text-red w3-center"></span>
+                  </div>
+                </div>
+    `
+}
+
+function bindWithdrawalHeaderRoot() {
+	return `
+	<div class="w3-row w3-padding-large"
+								style="margin-top: 24px;">
+								<div class="w3-col s1">
+									<p class="x-big no-margin blue-text-dash">No</p>
+
+								</div>
+								<div class="w3-col s2">
+									<p class="no-margin blue-text-dash x-big" style="font-weight: 500;">Wallet Name</p>
+								</div>
+								<div class="w3-col s6">
+									<p class="no-margin blue-text-dash x-big" style="font-weight: 500;">Wallet Address</p>
+
+								</div>
+								<div class="w3-col s1">
+									<p class="no-margin blue-text-dash x-big" style="font-weight: 500;">USD</p>
+
+								</div>
+								<div class="w3-col s2">
+									<p class="no-margin blue-text-dash x-big" style="font-weight: 500;">Date</p>
+
+								</div>
+							</div>
+	`
+}
+
+function bindWalletHeaderRoot() {
+	return `
+		<div class="w3-row w3-padding-large"
+							style="margin-top: 24px;">
+							<div class="w3-col s1">
+								<p class="x-big no-margin blue-text-dash" style="font-weight: 500;">No</p>
+
+							</div>
+							<div class="w3-col s2">
+								<p class="no-margin blue-text-dash x-big" style="font-weight: 500;">Wallet Name</p>
+							</div>
+							<div class="w3-col s9">
+								<p class="no-margin blue-text-dash x-big" style="font-weight: 500;">Wallet Address</p>
+
+							</div>
+
+						</div>
+	`
+}
+
+function bindChooseCrypto(crypto) {
+	return `
+	<option value="${crypto.crypto}">${crypto.crypto}</option>
+	`
 }
