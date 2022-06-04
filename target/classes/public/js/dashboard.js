@@ -1,3 +1,4 @@
+let userEmail = new URLSearchParams(window.location.search).get("email");
 let interestAccountCard = document.getElementById("card-1");
 let loanCard = document.getElementById("card-2");
 
@@ -40,7 +41,7 @@ let isAppSetingsOpened;
 let canWithdraw;
 
 let getUserXhr = new XMLHttpRequest();
-getUserXhr.open("GET", "/user", true);
+getUserXhr.open("GET", `/user/email/${email}`, true);
 getUserXhr.send();
 
 getUserXhr.onreadystatechange = function () {
@@ -345,7 +346,7 @@ function getCryptoUpdate() {
   cryptoUpdateXhr.send();
 
   cryptoUpdateXhr.onreadystatechange = function () {
-    document.getElementById("crypto-root").innerHTML = "";
+//    document.getElementById("crypto-root").innerHTML = "";
     if (this.readyState == 4 && this.status == 200) {
       let response = JSON.parse(this.response);
       response.forEach(function (crypto) {
@@ -382,14 +383,14 @@ function getCryptoUpdate() {
           plus = "+";
           direction = "up";
         }
-        document.getElementById("crypto-root").innerHTML += displayCryptoUpdate(
-          crypto,
-          color,
-          plus,
-          direction
-        );
-        document.getElementById("crypto-root-mobile").innerHTML +=
-          displayCryptoUpdateMobile(crypto, color, plus, direction);
+//        document.getElementById("crypto-root").innerHTML += displayCryptoUpdate(
+//          crypto,
+//          color,
+//          plus,
+//          direction
+//        );
+//        document.getElementById("crypto-root-mobile").innerHTML +=
+//          displayCryptoUpdateMobile(crypto, color, plus, direction);
       });
     }
   };

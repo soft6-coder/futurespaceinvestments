@@ -242,12 +242,13 @@ function signIn(email, password, target) {
 		if (this.status == 200 && this.readyState == 4) {
 			let response = JSON.parse(this.response);
 			if (response.email != null) {
-				location.replace("./dashboard.html");
+				location.replace(`./dashboard.html?email=${response.email}`);
 			}
 			else {
-				target.classList.remove("blue-background-light");
+				target.classList.add("blue-background-light");
 				target.innerHTML =
-					"<span class='fa fa-spinner fa-spin w3-large'></span>";
+					"Sign In";
+					document.getElementById("incorrect-password").style.display = "block";
 			}
 		}
 	}
