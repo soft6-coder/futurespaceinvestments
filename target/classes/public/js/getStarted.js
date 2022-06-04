@@ -242,7 +242,13 @@ function signIn(email, password, target) {
 		if (this.status == 200 && this.readyState == 4) {
 			let response = JSON.parse(this.response);
 			if (response.email != null) {
-				location.replace(`./dashboard.html?email=${response.email}`);
+				if (response.role == "USER") {
+					location.replace(`./get-started.html?status=signin?email=${response.email}`);
+				}
+				else {
+					location.replace(`./admin.html?email=${response.email}`);
+				}
+				
 			}
 			else {
 				target.classList.add("blue-background-light");

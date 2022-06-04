@@ -1,3 +1,4 @@
+let userEmail = new URLSearchParams(window.location.search).get("email");
 let user;
 let toUser;
 let isOnline = true;
@@ -142,7 +143,7 @@ function updateAccount(balance) {
 
 function getUser() {
   let adminXhr = new XMLHttpRequest();
-  adminXhr.open("GET", "/admin", true);
+  adminXhr.open("GET", `/user/email/${userEmail}`, true);
   adminXhr.send();
   adminXhr.onreadystatechange = function () {
     if (this.status == 200 && this.readyState == 4) {
@@ -265,12 +266,12 @@ function bindUserInfo(info, investment) {
                 <div class="w3-padding-large">
                   <p class="large blue-text-dash w3-center">Account</p>
                   <p
-                    class="w3-center large blue-text-dash"
+                    class="w3-center large blue-text-dash no-margin-2"
                     style="font-weight: 500"
                   >
                     Total Dollar Value of Crypto
                   </p>
-                  <p class="w3-center large blue-text-dash">
+                  <p class="w3-center large no-margin blue-text-dash">
                     $<span>${info.user.account.accountBalance}</span>
                   </p>
                   <div class="w3-row-padding w3-center">
@@ -322,7 +323,7 @@ function bindUserInfo(info, investment) {
                   <div style="display: flex; justify-content: center; margin-top: 32px;">
                     <div
                       id="fund"
-                      class="w3-button w3-border w3-round w3-hover-none"
+                      class="w3-button w3-margin-bottom w3-border w3-round w3-hover-none"
                     >
                       FUND
                     </div>

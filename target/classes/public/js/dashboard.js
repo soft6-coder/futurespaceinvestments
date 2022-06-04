@@ -25,7 +25,6 @@ let withdrawBtn = document.getElementById("withdraw-btn");
 
 let settingsSpinner = document.getElementById("settings-spinner");
 
-let userEmail;
 let addressDetails;
 let accountType;
 let userDetail;
@@ -41,7 +40,7 @@ let isAppSetingsOpened;
 let canWithdraw;
 
 let getUserXhr = new XMLHttpRequest();
-getUserXhr.open("GET", `/user/email/${email}`, true);
+getUserXhr.open("GET", `/user/email/${userEmail}`, true);
 getUserXhr.send();
 
 getUserXhr.onreadystatechange = function () {
@@ -477,6 +476,7 @@ function getAccount() {
 
           document.getElementById("accrued-interest").textContent =
             accruedInterest.toFixed(1);
+            console.log(accruedInterest)
           document.getElementById("paid-interest").textContent = (0).toFixed(1);
         }
       }
