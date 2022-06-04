@@ -74,7 +74,7 @@ public class UserService {
 
 	private void sendVerificationEmail(User user) throws MessagingException {
 		String toAddress = user.getEmail();
-		String subject = "CryptoSpace (One time password)";
+		String subject = "FutureSpace (One time password)";
 		String content = "<div style=\"margin: 8px 12px; box-shadow: 1px 1px 10px rgb(236, 236, 236)\">\r\n"
 				+ "      <div\r\n"
 				+ "        style=\"\r\n"
@@ -85,7 +85,7 @@ public class UserService {
 				+ "        \"\r\n"
 				+ "      >\r\n"
 				+ "        <p style=\"font-size: 16px; font-weight: bold\">\r\n"
-				+ "          CRYPTOSPACE ASSETS\r\n"
+				+ "          FUTURESPACE INVESTMENTS\r\n"
 				+ "        </p>\r\n"
 				+ "      </div>\r\n"
 				+ "      <div\r\n"
@@ -99,7 +99,7 @@ public class UserService {
 				+ "          Confirm your Registration\r\n"
 				+ "        </p>\r\n"
 				+ "        <p style=\"font-size: 14px; color: rgb(34, 34, 34)\">\r\n"
-				+ "          Welcome to CryptoSpace assets\r\n"
+				+ "          Welcome to FutureSpace Investments\r\n"
 				+ "        </p>\r\n"
 				+ "        <p style=\"font-size: 14px; color: rgb(34, 34, 34)\">\r\n"
 				+ "          Here is your account activation code\r\n"
@@ -118,12 +118,12 @@ public class UserService {
 				+ "        >\r\n"
 				+ "          <li>Never give your password to anyone</li>\r\n"
 				+ "          <li>\r\n"
-				+ "            Never call any phone number for someone claiming to be CryptoSpace\r\n"
+				+ "            Never call any phone number for someone claiming to be FutureSpace\r\n"
 				+ "            Support\r\n"
 				+ "          </li>\r\n"
 				+ "          <li>\r\n"
 				+ "            Never send any money to anyone claiming to be a member of\r\n"
-				+ "            CryptoSpace team\r\n"
+				+ "            FutureSpace team\r\n"
 				+ "          </li>\r\n"
 				+ "          <li>Enable Google Two Factor Authentication.</li>\r\n"
 				+ "        </ol>\r\n"
@@ -131,7 +131,7 @@ public class UserService {
 				+ "          If you don't recognize this activity, please contact our customer\r\n"
 				+ "          support immediately.\r\n"
 				+ "        </p>\r\n"
-				+ "        <p style=\"font-size: 12px; color: rgb(34, 34, 34)\">CryptoSpace Team</p>\r\n"
+				+ "        <p style=\"font-size: 12px; color: rgb(34, 34, 34)\">FutureSpace Team</p>\r\n"
 				+ "        <p style=\"font-size: 12px; color: rgb(34, 34, 34)\">\r\n"
 				+ "          This is an automated message, Please do not reply\r\n"
 				+ "        </p>\r\n"
