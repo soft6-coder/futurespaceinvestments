@@ -72,7 +72,7 @@ spinner.className = spinner.className.replace("opacity-1", "opacity-2");
 document.getElementById("dashboard-container").style.display = "block";
 setTimeout(function () {
   spinner.style.display = "block";
-}, 100);
+}, 300);
 
 let conversationSpinner = document.getElementById("conversation-spinner");
 let conversationWhite = document.getElementById("conversation-white");
