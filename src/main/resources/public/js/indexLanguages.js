@@ -2,13 +2,13 @@
 let contents = [
   (headerTitle = [
     { contentName: "headerTitle" },
-    { en: "Crypto Space Assets INVESTMENTS" },
+    { en: "Future Space Investments INVESTMENTS" },
     { spn: "" },
     { fre: "" },
   ]),
   (title = [
     { contentName: "title" },
-    { en: "Crypto Space Assets" },
+    { en: "Future Space Investments" },
     { spn: "" },
     { fre: "" },
   ]),
@@ -95,7 +95,7 @@ let contents = [
   ]),
   (content46 = [
     { contentName: "content46" },
-    { en: "Crypto Space Assets INTEREST ACCOUNT" },
+    { en: "Future Space Investments INTEREST ACCOUNT" },
     { spn: "" },
     { fre: "" },
   ]),
@@ -108,7 +108,7 @@ let contents = [
   (content4 = [
     { contentName: "content4" },
     {
-      en: "With a Crypto Space Assets Interest Account (FSI), your cryptocurrency can earn up to 1000% APY and more. Interest accrues hourly and its paid daily. There are no hidden fees, and no reason to wait.",
+      en: "With a Future Space Investments Interest Account (FSI), your cryptocurrency can earn up to 1000% APY and more. Interest accrues hourly and its paid daily. There are no hidden fees, and no reason to wait.",
     },
     { spn: "" },
     { fre: "" },
@@ -189,7 +189,7 @@ let contents = [
   ]),
   (content47 = [
     { contentName: "content47" },
-    { en: "Crypto Space Assets TRADING ACCOUNT" },
+    { en: "Future Space Investments TRADING ACCOUNT" },
     { spn: "" },
     { fre: "" },
   ]),
@@ -202,7 +202,7 @@ let contents = [
   (content18 = [
     { contentName: "content18" },
     {
-      en: "With Crypto Space Assets Trading you can buy, sell, or exchange a variety of cryptocurrencies at competitive prices and start earning interest the moment your trade is placed.",
+      en: "With Future Space Investments Trading you can buy, sell, or exchange a variety of cryptocurrencies at competitive prices and start earning interest the moment your trade is placed.",
     },
     { spn: "" },
     { fre: "" },
@@ -215,7 +215,7 @@ let contents = [
   ]),
   (content20 = [
     { contentName: "content20" },
-    { en: "Crypto Space Assets LOAN ACCOUNT" },
+    { en: "Future Space Investments LOAN ACCOUNT" },
     { spn: "" },
     { fre: "" },
   ]),
@@ -228,7 +228,7 @@ let contents = [
   (content22 = [
     { contentName: "content22" },
     {
-      en: " You don’t have to sell your crypto to get cash. At Crypto Space Assets, we let you borrow funds against your crypto assets so you can get a loan while continuing to hold.",
+      en: " You don’t have to sell your crypto to get cash. At Future Space Investments, we let you borrow funds against your crypto assets so you can get a loan while continuing to hold.",
     },
     { spn: "" },
     { fre: "" },
@@ -268,14 +268,14 @@ let contents = [
   (content26 = [
     { contentName: "content26" },
     {
-      en: "Joining the waitlist to apply for the Crypto Space Assets Bitcoin Rewards Credit Card (“Card”) does not guarantee that you will be eligible to receive the card. Geographic, regulatory, and underwriting restrictions will apply. Fees and terms are subject to change, and additional terms of service will apply to the Card. Trading qualifications are dependent upon regulatory and geographical restrictions. Rates for Crypto Space Assets products are subject to change. Digital currency is not legal tender, is not backed by the government, and crypto interest accounts are not subject to FDIC or SIPC protections. By joining the waitlist to apply for the Card, you agree to receive marketing communications pursuant to Crypto Space Assets",
+      en: "Joining the waitlist to apply for the Future Space Investments Bitcoin Rewards Credit Card (“Card”) does not guarantee that you will be eligible to receive the card. Geographic, regulatory, and underwriting restrictions will apply. Fees and terms are subject to change, and additional terms of service will apply to the Card. Trading qualifications are dependent upon regulatory and geographical restrictions. Rates for Future Space Investments products are subject to change. Digital currency is not legal tender, is not backed by the government, and crypto interest accounts are not subject to FDIC or SIPC protections. By joining the waitlist to apply for the Card, you agree to receive marketing communications pursuant to Future Space Investments",
     },
     { spn: "" },
     { fre: "" },
   ]),
   (content27 = [
     { contentName: "content27" },
-    { en: "Why Choose Crypto Space Assets" },
+    { en: "Why Choose Future Space Investments" },
     { spn: "" },
     { fre: "" },
   ]),
@@ -289,7 +289,7 @@ let contents = [
   ]),
   (content29 = [
     { contentName: "content29" },
-    { en: "Why Crypto Space Assets" },
+    { en: "Why Future Space Investments" },
     { spn: "" },
     { fre: "" },
   ]),
@@ -328,7 +328,7 @@ let contents = [
   (content35 = [
     { contentName: "content35" },
     {
-      en: "We’re committed to trust and transparency. Crypto Space Assets has built a best-in-class compliance program to protect your assets.",
+      en: "We’re committed to trust and transparency. Future Space Investments has built a best-in-class compliance program to protect your assets.",
     },
     { spn: "" },
     { fre: "" },
@@ -354,7 +354,7 @@ let contents = [
   (content39 = [
     { contentName: "content39" },
     {
-      en: "We’ve got a rock-solid foundation. Crypto Space Assets is backed by industry-leading investors, including Valar Ventures, Morgan Creek Capital Management, Coinbase Ventures, Galaxy Digital, Susquehanna Government Products, Winklevoss Capital, and more.",
+      en: "We’ve got a rock-solid foundation. Future Space Investments is backed by industry-leading investors, including Valar Ventures, Morgan Creek Capital Management, Coinbase Ventures, Galaxy Digital, Susquehanna Government Products, Winklevoss Capital, and more.",
     },
     { spn: "" },
     { fre: "" },
@@ -367,19 +367,19 @@ let contents = [
   ]),
   (content41 = [
     { contentName: "content41" },
-    { en: "Crypto Space Assets" },
+    { en: "Future Space Investments" },
     { spn: "" },
     { fre: "" },
   ]),
   (content42 = [
     { contentName: "content42" },
-    { en: "Crypto Space Assets Lending LLC NMLS ID#1737520 | NMLS Consumer Access" },
+    { en: "Future Space Investments Lending LLC NMLS ID#1737520 | NMLS Consumer Access" },
     { spn: "" },
     { fre: "" },
   ]),
   (content43 = [
     { contentName: "content43" },
-    { en: "Crypto Space Assets Trading LLC NMLS ID#1873137 | NMLS Consumer Access" },
+    { en: "Future Space Investments Trading LLC NMLS ID#1873137 | NMLS Consumer Access" },
     { spn: "" },
     { fre: "" },
   ]),
@@ -394,7 +394,7 @@ let contents = [
   (content45 = [
     { contentName: "content45" },
     {
-      en: "Disclaimer: Rates for Crypto Space Assets products are subject to change. Digital currency is not legal tender, is not backed by the government, and FSI accounts are not subject to FDIC or SIPC protections. Security is our top priority. Please see our Vulnerability Disclosure Form and Bug Bounty Program.",
+      en: "Disclaimer: Rates for Future Space Investments products are subject to change. Digital currency is not legal tender, is not backed by the government, and FSI accounts are not subject to FDIC or SIPC protections. Security is our top priority. Please see our Vulnerability Disclosure Form and Bug Bounty Program.",
     },
     { spn: "" },
     { fre: "" },

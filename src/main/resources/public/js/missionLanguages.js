@@ -2,11 +2,11 @@
 let content = [
   [
     { contentName: "headerTitle" },
-    { en: "Crypto Space Assets INVESTMENTS" },
+    { en: "Future Space Investments INVESTMENTS" },
     { spn: "" },
     { fre: "" },
   ],
-  [{ contentName: "title" }, { en: "Crypto Space Assets" }, { spn: "" }, { fre: "" }],
+  [{ contentName: "title" }, { en: "Future Space Investments" }, { spn: "" }, { fre: "" }],
   [{ contentName: "products" }, { en: "Products" }, { spn: "" }, { fre: "" }],
   [
     { contentName: "institutions" },
@@ -33,7 +33,7 @@ let content = [
   ],
   [
     { contentName: "content1" },
-    { en: "Crypto Space Assets Mission" },
+    { en: "Future Space Investments Mission" },
     { spn: "" },
     { fre: "" },
   ],
@@ -229,7 +229,7 @@ let content = [
   ],
   [
     { contentName: "content30" },
-    { en: "Contact Crypto Space Assets" },
+    { en: "Contact Future Space Investments" },
     { spn: "" },
     { fre: "" },
   ],

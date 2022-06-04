@@ -2,11 +2,11 @@
 let content = [
   [
     { contentName: "headerTitle" },
-    { en: "Crypto Space Assets INVESTMENTS" },
+    { en: "Future Space Investments INVESTMENTS" },
     { spn: "" },
     { fre: "" },
   ],
-  [{ contentName: "title" }, { en: "Crypto Space Assets" }, { spn: "" }, { fre: "" }],
+  [{ contentName: "title" }, { en: "Future Space Investments" }, { spn: "" }, { fre: "" }],
   [{ contentName: "products" }, { en: "Products" }, { spn: "" }, { fre: "" }],
   [
     { contentName: "institutions" },
@@ -39,7 +39,7 @@ let content = [
   ],
   [
     { contentName: "content2" },
-    { en: "With a Crypto Space Assets Interest Account (FIA), your cryptocurrency can earn up to 100% APY and more. Interest accrues daily and is paid weekly. There are no hidden, and no reason to wait. " },
+    { en: "With a Future Space Investments Interest Account (FIA), your cryptocurrency can earn up to 100% APY and more. Interest accrues daily and is paid weekly. There are no hidden, and no reason to wait. " },
     { spn: "" },
     { fre: "" },
   ],
@@ -105,7 +105,7 @@ let content = [
   ],
   [
     { contentName: "content12" },
-    { en: "Why go with Crypto Space Assets?" },
+    { en: "Why go with Future Space Investments?" },
     { spn: "" },
     { fre: "" },
   ],
@@ -129,7 +129,7 @@ let content = [
   ],
   [
     { contentName: "content16" },
-    { en: "Our platform gives you full transparency and control over your account and assets. And with the Crypto Space Assets app, you can manage your account from any smart device" },
+    { en: "Our platform gives you full transparency and control over your account and assets. And with the Future Space Investments app, you can manage your account from any smart device" },
     { spn: "" },
     { fre: "" },
   ],
@@ -153,7 +153,7 @@ let content = [
   ],
   [
     { contentName: "content20" },
-    { en: "Our platform gives you full transparency and control over your account and assets. And with the Crypto Space Assets app, you can manage your account from any smart device. " },
+    { en: "Our platform gives you full transparency and control over your account and assets. And with the Future Space Investments app, you can manage your account from any smart device. " },
     { spn: "" },
     { fre: "" },
   ],
@@ -177,7 +177,7 @@ let content = [
   ],
   [
     { contentName: "content24" },
-    { en: "Our platform gives you full transparency and control over your account and assets. And with the Crypto Space Assets app, you can manage your account from any smart device " },
+    { en: "Our platform gives you full transparency and control over your account and assets. And with the Future Space Investments app, you can manage your account from any smart device " },
     { spn: "" },
     { fre: "" },
   ],
@@ -189,13 +189,13 @@ let content = [
   ],
   [
     { contentName: "content26" },
-    { en: "Learn more about Crypto Space Assets interest accounts " },
+    { en: "Learn more about Future Space Investments interest accounts " },
     { spn: "" },
     { fre: "" },
   ],
   [
     { contentName: "content27" },
-    { en: "When will the Crypto Space Assets Bitcoin Rewards Credit Card be available?" },
+    { en: "When will the Future Space Investments Bitcoin Rewards Credit Card be available?" },
     { spn: "" },
     { fre: "" },
   ],
@@ -225,13 +225,13 @@ let content = [
   ],
   [
     { contentName: "content32" },
-    { en: "Crypto Space Assets Lending LLC NMLS ID#1737520 | NMLS Consumer Access " },
+    { en: "Future Space Investments Lending LLC NMLS ID#1737520 | NMLS Consumer Access " },
     { spn: "" },
     { fre: "" },
   ],
   [
     { contentName: "content33" },
-    { en: "Crypto Space Assets Trading LLC NMLS ID#1873137 | NMLS Consumer Access " },
+    { en: "Future Space Investments Trading LLC NMLS ID#1873137 | NMLS Consumer Access " },
     { spn: "" },
     { fre: "" },
   ],
@@ -243,7 +243,7 @@ let content = [
   ],
   [
     { contentName: "content35" },
-    { en: "Disclaimer: Rates for Crypto Space Assets products are subject to change. Digital currency is not legal tender, is not backed by the government, and FIA accounts are not subject to FDIC or SIPC protections. Security is our top priority. Please see our Vulnerability Disclosure Form and Bug Bounty Program. " },
+    { en: "Disclaimer: Rates for Future Space Investments products are subject to change. Digital currency is not legal tender, is not backed by the government, and FIA accounts are not subject to FDIC or SIPC protections. Security is our top priority. Please see our Vulnerability Disclosure Form and Bug Bounty Program. " },
     { spn: "" },
     { fre: "" },
   ],
