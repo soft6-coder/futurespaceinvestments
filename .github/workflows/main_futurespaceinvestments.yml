@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'futurespaceinvestments'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0436F6804DD2433E8F42E7D9D0061832 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_592A7FD030CE45108EE27830A7043DE5 }}
           package: '*.jar'
