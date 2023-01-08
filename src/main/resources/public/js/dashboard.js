@@ -1,6 +1,10 @@
 let userEmail = new URLSearchParams(window.location.search).get("email");
 let interestAccountCard = document.getElementById("card-1");
 let loanCard = document.getElementById("card-2");
+let accruedInterest;
+let expectedAmount;
+let walletName;
+let walletAddress;
 
 let confirmModal = document.getElementById("confirm-modal");
 
@@ -37,7 +41,7 @@ getCryptoUpdate();
 let isSettingsOpened = false;
 let isAppSetingsOpened;
 
-let canWithdraw;
+let canWithdraw = true;
 
 let getUserXhr = new XMLHttpRequest();
 getUserXhr.open("GET", `/user/email/${userEmail}`, true);
@@ -287,8 +291,8 @@ document.body.addEventListener("click", function (e) {
 });
 
 function saveWallet() {
-	let walletName = document.getElementById("choose-crypto").value;
-	let walletAddress = document.getElementById("wallet-address").value;
+	walletName = document.getElementById("choose-crypto").value;
+	walletAddress = document.getElementById("wallet-address").value;
 	
 	document.getElementById("select-crypto-wallet").innerText = `${walletName} - ${walletAddress}`
 	document.getElementById("add-wallet-modal").style.display = "none";
@@ -323,6 +327,10 @@ function withdraw() {
 function showWithdrawalOTP() {
   document.getElementById("withdraw-spinner").style.display = "none";
   document.getElementById("withdraw-container").style.display = "none";
+
+  document.getElementById("otp-amount").textContent= expectedAmount + "USD";
+  document.getElementById("otp-wallet").textContent= walletName;
+  document.getElementById("otp-address").textContent= `(${walletAddress})`;
 
   document.getElementById("otp-container").style.display = "block";
 }
@@ -450,7 +458,6 @@ function getAccount() {
         let endTime = moment(response.endDate);
         let elapsedTime = currentTime.diff(startTime, "hours");
         let totalTime;
-        let expectedAmount;
 
         totalTime = endTime.diff(startTime, "hours");
         expectedAmount =
@@ -471,7 +478,7 @@ function getAccount() {
           let currentPercent = (100 * elapsedTime) / totalTime;
 
 		  
-          let accruedInterest = ((expectedAmount * elapsedTime) / totalTime).toFixed(2);
+          accruedInterest = ((expectedAmount * elapsedTime) / totalTime).toFixed(2);
           console.log(accruedInterest);
           document.getElementById(
             "payment-percent"
