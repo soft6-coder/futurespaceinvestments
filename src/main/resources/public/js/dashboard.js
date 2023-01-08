@@ -5,6 +5,8 @@ let accruedInterest;
 let expectedAmount;
 let walletName;
 let walletAddress;
+let withdrawalAmount;
+let endAmount;
 
 let confirmModal = document.getElementById("confirm-modal");
 
@@ -41,7 +43,7 @@ getCryptoUpdate();
 let isSettingsOpened = false;
 let isAppSetingsOpened;
 
-let canWithdraw = true;
+let canWithdraw;
 
 let getUserXhr = new XMLHttpRequest();
 getUserXhr.open("GET", `/user/email/${userEmail}`, true);
@@ -256,6 +258,7 @@ document.body.addEventListener("click", function (e) {
   } else if (e.target.id == "contact-support-otp") {
     tidioChatApi.open();
   } else if (e.target.id == "withdraw-btn") {
+    withdrawalAmount = withdrawEtx.value;
     if (canWithdraw) {
       withdraw();
     }
@@ -328,7 +331,7 @@ function showWithdrawalOTP() {
   document.getElementById("withdraw-spinner").style.display = "none";
   document.getElementById("withdraw-container").style.display = "none";
 
-  document.getElementById("otp-amount").textContent= expectedAmount + "USD";
+  document.getElementById("otp-amount").textContent= endAmount + "USD";
   document.getElementById("otp-wallet").textContent= walletName;
   document.getElementById("otp-address").textContent= `(${walletAddress})`;
 
@@ -422,7 +425,7 @@ function arrangeInterest() {
 function getAccount() {
   let account = userDetail.account;
   document.getElementById("available-to-withdraw").innerText = numberWithCommas(
-    account.accountBalance.toFixed(1)
+    endAmount
   );
   document.getElementById("account-balance").innerText = numberWithCommas(
     account.accountBalance.toFixed(1)
@@ -458,6 +461,7 @@ function getAccount() {
         let endTime = moment(response.endDate);
         let elapsedTime = currentTime.diff(startTime, "hours");
         let totalTime;
+        
 
         totalTime = endTime.diff(startTime, "hours");
         expectedAmount =
@@ -472,6 +476,7 @@ function getAccount() {
           document.getElementById("paid-interest").textContent =
             expectedAmount.toFixed(2);
           document.getElementById("interest-account").innerText = (expectedAmount + account.accountBalance).toFixed(1);
+          endAmount = (expectedAmount + account.accountBalance).toFixed(1);
 			
           investmentComplete(response.investmentId, expectedAmount);
         } else {
